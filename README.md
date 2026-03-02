@@ -5,36 +5,14 @@
 2. [What is Vision Transformer?](#what-is-vision-transformer)
 3. [Code Architecture Breakdown](#code-architecture-breakdown)
 4. [How It Solves MNIST](#how-it-solves-mnist)
-5. [Getting Started](#getting-started)
-6. [Results](#results)
+5. [Results](#results)
 
 ---
 
 ## Introduction
-
-Welcome! This repository contains a step-by-step implementation of **Vision Transformer (ViT)** for classifying handwritten digits from the MNIST dataset. This project is designed to be beginner-friendly while building a powerful deep learning model.
-
-Vision Transformers are a revolutionary approach to computer vision that treats images as sequences of patches, similar to how transformers process text in Natural Language Processing (NLP).
+ This repository contains a step-by-step implementation of **Vision Transformer (ViT)** for classifying handwritten digits from the MNIST dataset. 
 
 ---
-
-## What is Vision Transformer?
-
-### Traditional Approach (CNNs)
-Convolutional Neural Networks (CNNs) use filters that slide across images to extract features. They work well but are specifically designed for image processing.
-
-### Transformer Approach (ViT)
-Vision Transformers do something different:
-- **Break images into patches**: Divide the image into small squares (like a grid)
-- **Embed patches**: Convert each patch into a vector (embedding)
-- **Add positional information**: Use positional embeddings so the model knows where each patch is located
-- **Apply self-attention**: Use the transformer architecture (the same technique that powers ChatGPT!) to understand relationships between patches
-- **Classify**: Use a classification head to predict the digit
-
-**Key Advantage**: ViT can capture global relationships across the entire image from the start, unlike CNNs that build up from local features.
-
----
-
 ## Code Architecture Breakdown
 
 ### Step 1: Data Preparation
@@ -239,25 +217,7 @@ for epoch in range(epochs):
         optimizer.step()
 ```
 
-**What happens**:
-1. **Predictions**: Model predicts labels for 64 images
-2. **Loss**: Cross-entropy loss measures how wrong predictions are
-3. **Backward propagation**: Calculates gradients
-4. **Optimization**: Adam optimizer updates weights to reduce loss
 
----
-
-## Getting Started
-
-### Requirements
-```bash
-pip install torch torchvision numpy matplotlib
-```
-
-### Running the Code
-1. Open the Jupyter notebook: `vit.ipynb`
-2. Run all cells sequentially
-3. The model will train for 10 epochs and print accuracy
 
 ### Key Hyperparameters
 ```python
@@ -269,18 +229,6 @@ batch_size = 64         # Images per batch
 epochs = 10             # Training iterations
 ```
 
----
-
-## Results
-
-### Performance Metrics
-- **Test Accuracy**: ~97-98% after 10 epochs
-- **Training Time**: ~5-10 minutes on CPU
-
-### What This Achieves
-- Correctly identifies handwritten digits with high accuracy
-- Demonstrates that ViT can work well on small, simple datasets
-- Shows the power of self-attention for vision tasks
 
 ### Sample Results
 ```
@@ -292,44 +240,4 @@ Epoch 10/10 - Train Loss: 0.08, Train Acc: 97.5%, Test Loss: 0.12, Test Acc: 97.
 
 ---
 
-## Learning Summary
 
-### Key Concepts Learned
-✅ What Vision Transformers are and how they differ from CNNs
-✅ How to split images into patches
-✅ How positional embeddings work
-✅ How self-attention mechanisms function
-✅ How to combine self-attention with feed-forward networks
-✅ How to train deep learning models using PyTorch
-
-### Why This Implementation Matters
-- **Educational**: Clear, step-by-step implementation
-- **Practical**: Uses real-world architecture (same idea as Google's ViT paper)
-- **Scalable**: You can apply this to larger images and datasets
-- **Customizable**: Easy to modify hyperparameters and experiment
-
----
-
-## Next Steps
-
-To extend this project:
-1. **Larger Images**: Try CIFAR-10 (32×32) or ImageNet
-2. **Different Patch Sizes**: Experiment with 4×4 or 14×14 patches
-3. **More Layers**: Add more transformer blocks
-4. **Different Datasets**: Apply to color images or medical imaging
-5. **Pre-training**: Use Vision Transformer pre-trained on ImageNet
-
----
-
-## References
-- ["An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"](https://arxiv.org/abs/2010.11929) - Original ViT Paper
-- PyTorch Documentation: https://pytorch.org/docs/stable/index.html
-- MNIST Dataset: http://yann.lecun.com/exdb/mnist/
-
----
-
-## Author's Notes
-
-This implementation prioritizes **clarity and understanding** over state-of-the-art performance. Each component is implemented from scratch using PyTorch primitives, making it educational and easy to follow.
-
-Happy learning! 🚀
